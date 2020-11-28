@@ -8,7 +8,7 @@ Tested on Big Sur 11.0.1
 
 ## Installation
 
-Install the latest version from the [releases tab]( https://github.com/actuallymentor/wintertime-mac-background-freezer/releases ). 
+Install the latest version from the [releases tab]( https://github.com/belovanton/wintertime-mac-background-freezer/releases ). 
 
 Or via homebrew:
 
@@ -45,4 +45,4 @@ Pull requests for feature updates are welcome.
 
 ## Questions / comments / thanks
 
-Give me a shout out on [ Twitter ]( https://twitter.com/actuallymentor ) or in the Issues tab. Expect it'll take me a few days to respond :)
+Give me a shout out on [ Twitter ]( a.belov@kt-team.de ) or in the Issues tab.
