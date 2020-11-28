@@ -4,7 +4,7 @@ Sometimes applications start using a lot of CPU (and thus battery) for no appare
 
 This application freezes processes that are not in focus (foreground). I use it to prevent applications like internet browsers, graphical processing and Electron-based applications from eating my battery.
 
-Tested on High Sierra 10.13.5.
+Tested on Big Sur 11.0.1
 
 ## Installation
 
@@ -26,7 +26,9 @@ When you want to stop the freezing process, click 'Stop freezing'.
 
 If for some reason one of the frozen apps stays frozen, use the 'Panic button' to defrost everything on your system.
 
-**Beta**: Command + shift + space toggles block/unblock.
+Command + shift + space toggles Panic button.
+
+You also can start timer. It will start freeze for 5 min (default) and wait unfreeze 20 sec. It will give all freezed apps 20 sec of activity. You can setup your own time intervals.
 
 ## What it does
 
