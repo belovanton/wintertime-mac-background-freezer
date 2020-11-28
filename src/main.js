@@ -71,22 +71,28 @@ const handleInteractions = f => {
 		status.classList.add(button.value.includes( 'Start' ) ? 'statusdeactive' : 'statusactive')
 		ipcRenderer.send( 'block', value.split( '\n' ) )
 	}
-	const wintertime=5*60
-	const summertime=20
-	duration = 5
 	const startTextTimer = f => {
+		const button = q( '#start' )
+		if (button.value.includes( 'Start' ))
+		{
+			var duration = q( '#freezing' ).value*60
+		}
+		else {
+			var duration = q( '#waiting' ).value
+			ipcRenderer.send( 'panic', true )
+		}
+		button.click()
 		var timer = duration, minutes, seconds;
-		setInterval(function () {
+		clearInterval(this.textTimer)
+		this.textTimer = setInterval(function () {
 			minutes = parseInt(timer / 60, 10);
 			seconds = parseInt(timer % 60, 10);
-	
 			minutes = minutes < 10 ? "0" + minutes : minutes;
 			seconds = seconds < 10 ? "0" + seconds : seconds;
-	
 			q( '#timercaption' ).innerHTML = minutes + ":" + seconds;
-	
 			if (--timer < 0) {
-				timer = duration;
+				clearInterval(textTimer)
+				startTextTimer()
 			}
 		}, 1000);
 	}
@@ -95,37 +101,18 @@ const handleInteractions = f => {
 		e.preventDefault()
 		submitFormData()
 	} )
-	const startWaiting = f => {
-		var timerID2 = setInterval(function() {
-			const status = q( '#status' )
-			status.innerHTML = "started timer"
-			const start = q( '#start' )
-			start.click()
-			duration = wintertime
-			startTextTimer()
-			startTimer()
-			clearInterval(timerID2)
-		}, summertime * 1000); 
-	}
-	const startTimer = f => {
-		var timerID = setInterval(function() {
-			const status = q( '#status' )
-			status.innerHTML = "stoped timer"
-			const start = q( '#start' )
-			start.click()
-			duration = summertime
-			ipcRenderer.send( 'panic', true ) 
-			startTextTimer()
-			startWaiting()
-			clearInterval(timerID)
-		}, wintertime * 1000); 
-	}
+
 	
 	// On timer
 	q( '#timer' ).addEventListener( 'click', f => {
-		duration = wintertime
-		startTextTimer()
-		startTimer()
+		const button = q( '#timer' )
+		if (button.innerHTML.includes( 'Start timer' )){
+			startTextTimer()
+		}
+		else {
+			clearInterval(this.textTimer)
+		}
+		button.innerHTML = button.innerHTML.includes( 'Start timer' ) ? 'Stop timer' : 'Start timer'
 	} )	
 	// On panic
 	q( '#panic' ).addEventListener( 'click', f => {
@@ -137,7 +124,7 @@ const handleInteractions = f => {
 	// On backend keyboard shortcuit
 	ipcRenderer.on( 'keyboard-shortcut', ( event, content ) => {
 		if( process.env.debug ) console.log( content )
-		if( content == 'toggle-block' ) submitFormData()
+		ipcRenderer.send( 'panic', true ) 
 	} )
 
 }
