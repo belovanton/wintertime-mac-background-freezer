@@ -10,12 +10,6 @@ Tested on Big Sur 11.0.1
 
 Install the latest version from the [releases tab]( https://github.com/belovanton/wintertime-mac-background-freezer/releases ). 
 
-Or via homebrew:
-
-```shell
-brew cask install wintertime
-```
-
 ## Usage
 
 - Open the app
