@@ -39,4 +39,4 @@ Pull requests for feature updates are welcome.
 
 ## Questions / comments / thanks
 
-Give me a shout out on [ Twitter ]( a.belov@kt-team.de ) or in the Issues tab.
+Give me a shout out on [ Email ]( mailto:a.belov@kt-team.de ) or in the Issues tab.
