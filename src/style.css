@@ -25,7 +25,15 @@ p {
 	margin: 0;
 	font-style: italic;
 }
-
+#status{
+	font-size: large;
+}
+.statusactive {
+	color: rgb(0, 121, 36);
+}
+.statusdeactive {
+	color: rgb(255, 0, 0);
+}
 #form {
 	padding: 10px;
 	box-sizing: border-box;
@@ -49,7 +57,7 @@ textarea#blocklist {
 	background: #757575;
 }
 
-#start, #stop, #panic {
+#start, #stop, #panic, #timer {
 	border: none;
     padding: 10px;
     margin: 10px;
@@ -61,6 +69,10 @@ textarea#blocklist {
 }
 
 #secondary {
+	display: flex;
+	flex-direction: row;
+}
+#timer {
 	display: flex;
 	flex-direction: row;
 }

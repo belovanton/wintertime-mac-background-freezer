@@ -63,7 +63,7 @@ class App {
       this.window.webContents.send( 'keyboard-shortcut', 'toggle-block' )
 
       // Shortcut sends signal, so the this.blocking = true means after full execution it is off
-      say( `Wintertime ${ this.blocking ? 'OFF' : 'ON' }` )
+      //say( `Wintertime ${ this.blocking ? 'OFF' : 'ON' }` )
     } )
     if( process.env.debug ) console.log( globalShortcut.isRegistered( this.shortcut ), ' shortcut status ' )
   }
