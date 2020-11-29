@@ -3,6 +3,7 @@ const activeWin = require('active-win')
 
 // Helpers
 const block = regex => new Promise( resolve => {
+  console.log(`pkill -STOP -u $(whoami) -f "${ regex }"`)
   exec( `pkill -STOP -u $(whoami) -f "${ regex }"`, ( error, stdout, stderr ) => {
       return resolve( stdout, error, stderr )
     } )

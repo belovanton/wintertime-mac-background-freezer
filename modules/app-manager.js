@@ -137,7 +137,13 @@ class App {
   render() {
 
     // Create the window
-    this.window = new BrowserWindow( this.windowSize )
+    this.window = new BrowserWindow( {
+      width: 400, 
+      height: 700,
+      webPreferences: {
+          nodeIntegration: true,
+          contextIsolation: false
+      }} )
     this.window.loadFile( `${ __dirname }/../src/index.html` )
 
     // Listeners
