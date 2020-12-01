@@ -84,7 +84,9 @@ const handleInteractions = f => {
 		button.click()
 		var timer = duration, minutes, seconds;
 		clearInterval(this.textTimer)
+
 		this.textTimer = setInterval(function () {
+
 			minutes = parseInt(timer / 60, 10);
 			seconds = parseInt(timer % 60, 10);
 			minutes = minutes < 10 ? "0" + minutes : minutes;

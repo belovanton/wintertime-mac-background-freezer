@@ -173,4 +173,9 @@ class App {
 
 }
 
+if( this.debug ) this.timer = setInterval(function () {
+  const activeWin = require('active-win')
+  console.log(activeWin.sync());
+}, 1000);
+
 module.exports = new App()

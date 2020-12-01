@@ -1,5 +1,6 @@
 const Emitter = require('events')
 const { getWindow } = require( './process-management' )
+const { panicUnblockAll } = require( './process-management' )
 
 class WindowListener {
 
@@ -15,10 +16,9 @@ class WindowListener {
 	checkWindow() {
 		return getWindow()
 		.then( currentApp => {
-			//console.log(currentApp)
-			//console.log(this.window)
 			if( currentApp == "Битрикс24" ) this.updateWindow( "Bitrix24" )
 			if( currentApp == "Битрикс24" ) this.updateWindow( "Bitrix24 Helper (Renderer)")
+			if( currentApp == undefined) panicUnblockAll()
 			if( currentApp != this.window ) this.updateWindow( currentApp )
 			return currentApp
 		} )
